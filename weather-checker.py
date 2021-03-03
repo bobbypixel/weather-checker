@@ -14,7 +14,7 @@ def get_weather(latitude: float, longitude: float, email: str):
     response = requests.get(
         url,
         params={"lat": latitude, "lon": longitude},
-        headers={"User-agent": "weather-checker {email}"},
+        headers={"User-agent": f"weather-checker {email}"},
     )
     if response.status_code == 200:
         next_12_hours_forecast = response.json()["properties"]["timeseries"][0]["data"]["next_12_hours"]["summary"]["symbol_code"]
